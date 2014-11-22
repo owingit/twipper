@@ -1,11 +1,23 @@
-<%= simple_form_for @tweet do |f| %>
-  <%= f.input :tweet, label: 'Give a shout!'  %>
-  <%= f.button :submit %>
-<% end %>
+<div class = "middle">
+	<div class = "container">
+		<div class = "col-md-9 content">
+			<%= simple_form_for @tweet do |f| %>
+  			<%= f.input :tweet, label: 'Give a shout!'  %>
+  			<%= f.button :submit %>
+			<% end %>
 
-Here are all tweets: <br><br>
-<ul>
-	<%= @tweets.each do |t| %>
-		<li><%= t.tweet %></li>
-	<%end%>
-<ul>
+		</div>
+		<div class= "col-md-3 content">
+
+			<div class="panel">
+			Here are all my tweets: <br><br>
+
+			<ul>
+				<% @tweets.each do |t| %>
+				<li class="alert alert-info" role="alert"><%= t.tweet%></li>
+				<%end%>
+			<ul>
+			</div>
+		</div>
+	</div>
+</div>
