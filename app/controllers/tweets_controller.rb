@@ -7,11 +7,14 @@ class TweetsController < ApplicationController
 	def create
 		@tweet = Tweet.new(tweet_params)
 		@tweet.user = current_user
-		@tweet.save
-
+		if @tweet.save
+			flash[:success] = "Submission successful"
+		else 
+			flash[:danger] = "Something went wrong. Something went horribly, horribly wrong."
 		#@tweet = Tweet.create(tweet_params)
 		@tweets = current_user.tweets
-		flash[:success] = "Submission successful"
+		end
+		
 		render 'new'
 	end
 
