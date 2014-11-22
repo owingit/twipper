@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 
 gem 'simple_form'
 
+gem 'devise'
+
 gem 'country_select'
 
 # Use unicorn as the app server
