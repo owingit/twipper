@@ -2,3 +2,11 @@
   <%= f.input :tweet, label: 'Give a shout!'  %>
   <%= f.button :submit %>
 <% end %>
+
+Here are all tweets: <br><br>
+
+<ul>
+	<%= @tweets.each do |t| %>
+		<li><%= t.tweet %></li>
+	<%end%>
+<ul>
