@@ -1,7 +1,7 @@
 Newsfeed:<br><br>
 <ul>
 	<% @tweets.each do |t| %>
-		<li class="alert alert-info" role="alert"><%= t.user.email %> || <%= t.tweet%></li><br>
+		<li class="well"><%= t.user.email %> || <%= t.tweet%></li><br>
 	<%end%>
 <ul>
 </div>

@@ -12,9 +12,8 @@ class TweetsController < ApplicationController
 		else 
 			flash[:danger] = "Something went wrong. Something went horribly, horribly wrong."
 		#@tweet = Tweet.create(tweet_params)
-		@tweets = current_user.tweets
 		end
-		
+		@tweets = current_user.tweets
 		render 'new'
 	end
 
