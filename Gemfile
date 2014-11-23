@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 
 gem 'simple_form'
 
+gem 'carrierwave'
+
 gem 'devise'
 
 gem 'country_select'
