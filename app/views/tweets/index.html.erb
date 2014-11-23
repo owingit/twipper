@@ -1,7 +1,33 @@
-Newsfeed:<br><br>
-<ul>
-	<% @tweets.each do |t| %>
-		<li class="well"><%= t.user.email %> || <%= t.tweet%></li><br>
-	<%end%>
-<ul>
+<div class = "container">
+
+	<div class = "col-md-9 content"> 
+	<h3>Newsfeed:</h3><br><br>
+		<ul>
+			<% @tweets.each do |t| %>
+				<li class="well"><%= t.user.email %> || <%= t.tweet%><br>
+				<% if !current_user.following?(t.user) %>
+					<%= simple_form_for @relationship do |f| %>
+						<%= f.input :followed_id, as: :hidden, input_html: { value: t.user.id} %>
+						<%=f.button :submit, "Follow", class: 'btn btn-primary' %>
+					<% end %>
+				<%else%>
+					<%= simple_form_for(@relationship, :method => :delete, :url => relationship_path(t.user.id)) do |f| %>
+						<%= f.input :followed_id, as: :hidden, input_html: { value: t.user.id} %>
+						<%= f.button :submit, "Unfollow", class: 'btn btn-danger' %>
+					<%end%>
+				<%end%>
+				</li>
+			<%end%>
+		<ul>
+	</div>
+
+	<div class = "col-md-3 content">
+		<h3><b>Follower Newsfeed:</b></h3>
+		<% @tweets.each do |t| %>
+			<%if current_user.following?(t.user) %>
+				<li class="well"><%= t.user.email %> || <%= t.tweet%><br>
+				</li>
+			<%end%>
+		<%end%>
+	</div>
 </div>

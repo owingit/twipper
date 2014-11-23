@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   root 'static_pages#main_page' #calling a method - name'arguments'
   resources :tweets
   resources :profiles
-  
+  resources :relationships
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
