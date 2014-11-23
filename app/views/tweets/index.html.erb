@@ -2,9 +2,8 @@
 
 	<div class = "col-md-9 content"> 
 	<h3>Newsfeed:</h3><br><br>
-		<ul>
 			<% @tweets.each do |t| %>
-				<li class="well"><%= t.user.email %> || <%= t.tweet%><br>
+				<li class="well"><%= t.user.email %> || <%= t.tweet%> <p class = "text-muted" style = "font-size: 70%"> <%= time_ago_in_words(t.created_at) %> ago<br>
 				<% if !current_user.following?(t.user) %>
 					<%= simple_form_for @relationship do |f| %>
 						<%= f.input :followed_id, as: :hidden, input_html: { value: t.user.id} %>
@@ -18,14 +17,13 @@
 				<%end%>
 				</li>
 			<%end%>
-		<ul>
 	</div>
 
 	<div class = "col-md-3 content">
-		<h3><b>Follower Newsfeed:</b></h3>
+		<h3><b>What are your followers up to?</b></h3>
 		<% @tweets.each do |t| %>
 			<%if current_user.following?(t.user) %>
-				<li class="well"><%= t.user.email %> || <%= t.tweet%><br>
+				<li class="well"><%= t.user.email %> || <%= t.tweet%> <p class = "text-muted" style = "font-size: 70%"> <%= time_ago_in_words(t.created_at) %> ago<br> </p>
 				</li>
 			<%end%>
 		<%end%>

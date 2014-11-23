@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 
 gem 'simple_form'
 
+gem 'twitter-text', '~> 1.10.0'
+
 gem 'carrierwave'
 
 gem 'devise'

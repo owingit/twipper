@@ -1,0 +1,6 @@
+<ul>
+	<% @filtered_tweets.each do |t| %>
+		<li class="well"><%= t.tweet%> <p class = "text-muted" style = "font-size: 70%"> <%= time_ago_in_words(t.created_at) %> ago<br> </p>
+		</li>
+	<%end%>
+</ul>
