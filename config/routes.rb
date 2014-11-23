@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :tweets
   resources :profiles
   resources :relationships
+  resources :hashtags
 
   get 'h/:hash_tag_id', to: 'hashtags#show', as: :hash_tag
 

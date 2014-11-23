@@ -1,6 +1,8 @@
+<div class = "container", style = "font-size: 150%"> Matching Hashtags: </div>
+
 <ul>
 	<% @filtered_tweets.each do |t| %>
-		<li class="well"><%= t.tweet%> <p class = "text-muted" style = "font-size: 70%"> <%= time_ago_in_words(t.created_at) %> ago<br> </p>
+		<li class="well"><%= t.user.email%> || <%= t.tweet%> <p class = "text-muted" style = "font-size: 70%"> <%= time_ago_in_words(t.created_at) %> ago<br> </p>
 		</li>
 	<%end%>
 </ul>

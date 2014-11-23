@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
 		#@tweet = Tweet.create(tweet_params)
 		end
 		@tweets = current_user.tweets.reverse_each
-		render 'new'
+		redirect_to new_tweet_path
 	end
 
 	def index
