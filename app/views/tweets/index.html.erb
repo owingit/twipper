@@ -25,9 +25,6 @@
 			<%if current_user.following?(t.user) %>
 				<li class="well"><%= t.user.email %> || <%= t.tweet%> <p class = "text-muted" style = "font-size: 70%"> <%= time_ago_in_words(t.created_at) %> ago<br> </p>
 				</li>
-			<%else%>
-				<i>Find your friends and follow them!</i>
-				<%break%>
 			<%end%>
 		<%end%>
 	</div>

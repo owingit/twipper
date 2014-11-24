@@ -8,7 +8,7 @@ class RelationshipsController < ApplicationController
 		if @relationship.save
 			flash[:success] = "You are now following #{User.find(@relationship.followed_id).email}"
 		else 
-			flash[:danger] = "The user ha taken out a restraining order against you and you may not follow them at the present moment"
+			flash[:danger] = "The user has taken out a restraining order against you and you may not follow them at the present moment"
 		end
 		#create is permanent
 
